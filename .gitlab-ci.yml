@@ -1,0 +1,21 @@
+image: https://harbor.tianxing.site/docker_hub/library/gradle:latest
+stages:
+  - test
+  - build
+  - push
+  - deploy
+test:
+  stage: test
+  script:
+    - ./gradlew test
+
+build:
+  stage: build
+  script:
+    - ./gradlew bootjar
+
+deploy:
+  stage: deploy
+  script:
+    - docker push
+    - kubectl -y apply
