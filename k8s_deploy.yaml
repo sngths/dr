@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dr
+spec:
+  selector:
+    matchLabels:
+      app: dr
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: dr
+    spec:
+      containers:
+        - name: dr
+          image: harbor.tianxing.site/app/dr:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8080

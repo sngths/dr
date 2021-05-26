@@ -1,4 +1,4 @@
-package framework.configuration;
+package com.tianxing.dr.framework.runtime.configuration;
 
 /**
  * @author tianxing

@@ -1,4 +1,4 @@
-package framework.bootstrap;
+package com.tianxing.dr.framework.runtime.bootstrap;
 
 /**
  * @author tianxing

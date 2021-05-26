@@ -1,9 +1,12 @@
-image: https://harbor.tianxing.site/docker_hub/library/gradle:latest
+image: harbor.tianxing.site/docker_hub/library/gradle:jdk8
 stages:
   - test
   - build
   - push
   - deploy
+
+cache:
+
 test:
   stage: test
   script:
@@ -15,7 +18,9 @@ build:
     - ./gradlew bootjar
 
 deploy:
+  image: harbor.tianxing.site/docker_hub/library/docker:latest
   stage: deploy
   script:
+    - docker login
     - docker push
     - kubectl -y apply
