@@ -3,7 +3,7 @@ package com.tianxing.dr.framework.trace.tracing.http;
 import com.tianxing.dr.framework.trace.logging.LogInfo;
 import com.tianxing.dr.framework.trace.runtime.Runtime;
 import com.tianxing.dr.framework.trace.runtime.context.Type;
-import com.tianxing.dr.framework.util.UID;
+import com.tianxing.dr.framework.utils.UID;
 import org.springframework.stereotype.Component;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.context.request.WebRequest;

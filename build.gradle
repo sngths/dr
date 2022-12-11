@@ -20,12 +20,18 @@ dependencies {
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 
 	implementation 'io.dropwizard.metrics:metrics-core:4.1.21'
-
+	implementation 'org.springframework:spring-websocket:5.2.2.RELEASE'
 	implementation 'io.opentracing:opentracing-api:0.33.0'
 	implementation 'io.opentracing:opentracing-noop:0.33.0'
 	implementation 'io.opentracing:opentracing-util:0.33.0'
 
 	implementation 'co.elastic.logging:ecs-logging-core:1.0.1'
+
+	implementation 'com.google.guava:guava:30.1.1-jre'
+
+	implementation 'net.bytebuddy:byte-buddy:1.11.6'
+
+	implementation 'com.github.xiaoymin:knife4j:3.0.3'
 }
 
 test {

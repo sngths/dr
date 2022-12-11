@@ -10,6 +10,12 @@ import org.springframework.web.socket.server.standard.ServerEndpointExporter;
  * @author tianxing
  */
 @Configuration
-public class DrConfiguration {
+@EnableWebSocket
+@EnableWebSocketMessageBroker
+public class WebSocketConfiguration {
 
+    @Bean
+    public ServerEndpointExporter webSocketEndpoint(){
+        return new ServerEndpointExporter();
+    }
 }

@@ -1,0 +1,83 @@
+<html>
+<head>
+    <title>Spring WebSocket Demo</title>
+    <style>
+        #connection-status {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            border-radius: 5px;
+            margin-right: 5px;
+        }
+        #connection-status.connected {
+            background-color: green;
+        }
+        #connection-status.disconnected {
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+<p>
+    <span id="connection-status"></span>
+    <input id="message" type="text" placeholder="Enter a message">
+    <button id="send" type="button">Send</button>
+    <h2>Received Messages:</h2>
+    <div id="received"></div>
+</p>
+<script>
+    var socket = new WebSocket("ws://localhost:8080/my-websocket-endpoint");
+
+    socket.onopen = function() {
+        console.log("WebSocket opened");
+    };
+
+    socket.onmessage = function(event) {
+        console.log("Received message: " + event.data);
+    };
+
+    socket.onerror = function(error) {
+        console.error("WebSocket error: " + error);
+    };
+
+    var sendButton = document.getElementById("send");
+    sendButton.addEventListener("click", function() {
+        var message = document.getElementById("message").value;
+        socket.send(message);
+    });
+
+    var receivedDiv = document.getElementById("received");
+
+    socket.onmessage = function(event) {
+        var message = event.data;
+        var p = document.createElement("p");
+        p.innerText = message;
+        receivedDiv.appendChild(p);
+    };
+
+    var sentDiv = document.getElementById("sent");
+
+    sendButton.addEventListener("click", function() {
+        var message = document.getElementById("message").value;
+        socket.send(message);
+
+        var p = document.createElement("p");
+        p.innerText = message;
+        sentDiv.appendChild(p);
+    });
+
+    var connectionStatus = document.getElementById("connection-status");
+
+    socket.onopen = function() {
+        connectionStatus.classList.add("connected");
+    };
+
+    socket.onclose = function() {
+        connectionStatus.classList.remove("connected");
+        connectionStatus.classList.add("disconnected");
+    };
+
+
+</script>
+</body>
+</html>

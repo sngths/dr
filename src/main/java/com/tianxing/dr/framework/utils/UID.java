@@ -1,4 +1,4 @@
-package com.tianxing.dr.framework.util;
+package com.tianxing.dr.framework.utils;
 
 import java.util.UUID;
 

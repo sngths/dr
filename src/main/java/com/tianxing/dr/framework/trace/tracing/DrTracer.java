@@ -14,10 +14,12 @@ import io.opentracing.propagation.Format;
  */
 public class DrTracer implements Tracer {
 
+    private ScopeManager scopeManager;
+
 
     @Override
     public ScopeManager scopeManager() {
-        return null;
+        return scopeManager;
     }
 
     @Override

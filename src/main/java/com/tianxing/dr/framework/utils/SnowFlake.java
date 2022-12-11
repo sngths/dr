@@ -1,4 +1,4 @@
-package com.tianxing.dr.framework.util;
+package com.tianxing.dr.framework.utils;
 
 /**
  * 0 - 41位时间戳 - 5位数据中心标识 - 5位机器标识 - 12位序列号
