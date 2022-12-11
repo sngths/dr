@@ -13,6 +13,8 @@ socket.onmessage = function(event) {
     p.style.color = 'green';
     p.innerText = message;
     p.style.gap = '0';
+    p.style.margin = '0';
+    p.style.padding = '0';
     messageDisplay.appendChild(p);
 };
 
@@ -29,6 +31,8 @@ sendButton.addEventListener("click", function() {
     p.style.color = 'gray';
     p.innerText = message;
     p.style.gap = '0';
+    p.style.margin = '0';
+    p.style.padding = '0';
     messageDisplay.appendChild(p);
 });
 
