@@ -37,5 +37,7 @@ public class WebsocketEndpoint {
     public void onMessage(Session session, String message) {
         // 处理文本消息
         log.info("收到消息: {}", message);
+        // 发送消息
+        session.getAsyncRemote().sendText(message);
     }
 }

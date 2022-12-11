@@ -11,7 +11,7 @@ import org.springframework.web.socket.server.standard.ServerEndpointExporter;
  */
 @Configuration
 @EnableWebSocket
-@EnableWebSocketMessageBroker
+//@EnableWebSocketMessageBroker
 public class WebSocketConfiguration {
 
     @Bean
