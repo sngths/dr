@@ -1,4 +1,4 @@
-package com.tianxing.dr.netty.handler;
+package com.tianxing.dr.netty.client;
 
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
