@@ -10,6 +10,7 @@ public class ClientHandler extends ChannelInboundHandlerAdapter {
 
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
-        System.out.println("客户端收到消息：" + msg);
+        //System.out.println("客户端收到消息：" + msg);
+        ctx.fireChannelRead(msg);
     }
 }

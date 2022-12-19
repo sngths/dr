@@ -12,6 +12,9 @@ import io.netty.util.CharsetUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.Date;
+import java.util.concurrent.ExecutionException;
+
 /**
  * @author tianxing
  */
@@ -65,7 +68,15 @@ public class Client {
 
     // 发送消息
     public void sendMsg(String message) {
-        channel.writeAndFlush(message);
+        ChannelFuture future = channel.writeAndFlush(message);
+        // 等待响应完成
+        future.awaitUninterruptibly();
+        try {
+            String m = String.valueOf(future.get());
+            log.info("client receive message: {}", m);
+        } catch (InterruptedException | ExecutionException e) {
+            log.error("client send message error", e);
+        }
     }
 
     public static void main(String[] args) {
@@ -74,7 +85,7 @@ public class Client {
         new Thread(() -> {
             while (true) {
                 try {
-                    client.sendMsg("hello world");
+                    client.sendMsg(new Date(System.currentTimeMillis()).toString());
                     Thread.sleep(1000);
                 } catch (Exception e) {
                     e.printStackTrace();
